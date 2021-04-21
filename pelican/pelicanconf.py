@@ -73,7 +73,7 @@ TEMPLATE_PAGES['simulator/toroidal_life.js']   = 'simulator/toroidal_life.js'
 # and insert "api." beteen the protocol and base URL to get the API URL.
 GOLLYX_BASE_UI = os.environ.get('GOLLYX_BASE_UI', '')
 GOLLYX_BASE_API = os.environ.get('GOLLYX_BASE_API', '')
-GOLLYX_MAPS_API = os.environ.get('GOLLYX_BASE_API', '')
+GOLLYX_MAPS_API = os.environ.get('GOLLYX_MAPS_API', '')
 
 
 # --------------------
