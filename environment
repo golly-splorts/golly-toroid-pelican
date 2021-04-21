@@ -1,0 +1,3 @@
+#!/bin/bash
+
+export GOLLYX_TOROIDAL_PELICAN_HOME="${HOME}/golly/gollyx-toroidal-pelican"
