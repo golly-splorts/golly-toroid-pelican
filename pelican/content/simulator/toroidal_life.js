@@ -24,6 +24,7 @@
 
     baseApiUrl : getBaseApiUrl(),
     baseUIUrl : getBaseUIUrl(),
+    mapsApiUrl : getMapsApiUrl(),
 
     // this may duplicate / between the base url and simulator
     baseSimulatorUrl : getBaseUIUrl() + '/simulator/index.html',
@@ -302,11 +303,11 @@
           var gameTitleElem = document.getElementById('golly-game-title');
           if (gameApiResult.isPostseason == true) {
             var sp1 = gameApiResult.season + 1;
-            gameTitleElem.innerHTML = "Golly: " + gameApiResult.description + " <small>- S" + sp1 + "</small>";
+            gameTitleElem.innerHTML = "Toroidal Cup: " + gameApiResult.description + " <small>- S" + sp1 + "</small>";
           } else {
             var sp1 = gameApiResult.season + 1;
             var dp1 = gameApiResult.day + 1;
-            var descr = "Golly: Season " + sp1 + " Day " + dp1;
+            var descr = "Toroidal Cup: Season " + sp1 + " Day " + dp1;
             gameTitleElem.innerHTML = descr;
           }
 
@@ -370,7 +371,7 @@
         var cols = this.getColsFromUrlSafely();
 
         // Load a random map from the /map API endpoint
-        let url = this.baseApiUrl + '/map/' + this.patternName + '/r/' + this.getRowsFromUrlSafely() + '/c/' + this.getColsFromUrlSafely();
+        let url = this.mapsApiUrl + '/map/' + this.patternName + '/r/' + this.getRowsFromUrlSafely() + '/c/' + this.getColsFromUrlSafely();
         fetch(url)
         .then(res => res.json())
         .then((mapApiResult) => {
@@ -382,7 +383,7 @@
 
           // Set the game title
           var gameTitleElem = document.getElementById('golly-game-title');
-          gameTitleElem.innerHTML = "Golly Map: " + mapApiResult.mapName;
+          gameTitleElem.innerHTML = "Toroidal Map: " + mapApiResult.mapName;
 
           this.setTeamNames();
           this.setColors();
@@ -432,7 +433,7 @@
 
           // Set the game title
           var gameTitleElem = document.getElementById('golly-game-title');
-          gameTitleElem.innerHTML = "Golly Random Pattern";
+          gameTitleElem.innerHTML = "Toroidal Random Pattern";
 
         } else if ((this.s1user != null) || (this.s2user != null)) {
           if (this.s1user != null) {
@@ -448,7 +449,7 @@
 
           // Set the game title
           var gameTitleElem = document.getElementById('golly-game-title');
-          gameTitleElem.innerHTML = "Golly Sandbox";
+          gameTitleElem.innerHTML = "Toroidal Sandbox";
 
         } else {
           this.initialState1 = this.s1Default;
@@ -456,7 +457,7 @@
 
           // Set the game title
           var gameTitleElem = document.getElementById('golly-game-title');
-          gameTitleElem.innerHTML = "Golly Sandbox";
+          gameTitleElem.innerHTML = "Toroidal Sandbox";
 
         }
 
@@ -676,11 +677,7 @@
       // if invalid or not specified
       rows = parseInt(this.helpers.getUrlParameter('rows'));
       if (isNaN(rows) || rows < 0 || rows > 1000) {
-        rows = 100;
-      }
-      if (rows >= 200) {
-        // Turn off the grid
-        this.grid.current = 1;
+        rows = 40;
       }
       return rows;
     },
@@ -691,11 +688,7 @@
       // if invalid or not specified
       cols = parseInt(this.helpers.getUrlParameter('cols'));
       if (isNaN(cols) || cols < 0 || cols > 1000) {
-        cols = 120;
-      }
-      if (cols >= 200) {
-        // Turn off the grid
-        this.grid.current = 1;
+        cols = 280;
       }
       return cols;
     },
@@ -706,7 +699,7 @@
       // if invalid or not specified
       cellSize = parseInt(this.helpers.getUrlParameter('cellSize'));
       if (isNaN(cellSize) || cellSize < 1 || cellSize > 10) {
-        cellSize = 7;
+        cellSize = 3;
       }
       if (cellSize <= 5) {
         // Turn off the grid
