@@ -5,8 +5,8 @@ set -x
 
 REMOTE="gh"
 
-if [ -z "${GOLLYX_PELICAN_HOME}" ]; then
-	echo 'You must set the $GOLLYX_PELICAN_HOME environment variable to proceed.'
+if [ -z "${GOLLYX_TOROIDAL_PELICAN_HOME}" ]; then
+	echo 'You must set the $GOLLYX_TOROIDAL_PELICAN_HOME environment variable to proceed.'
 	exit 1
 fi
 
