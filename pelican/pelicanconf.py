@@ -1,7 +1,7 @@
 import os, re, glob
 
 
-GOLLYX_TOROIDAL_PELICAN_VERSION = "42.0.8"
+GOLLYX_TOROIDAL_PELICAN_VERSION = "42.0.9"
 
 
 # Yes, this is supposed to be UI not URI...
