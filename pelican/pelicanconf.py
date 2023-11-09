@@ -1,7 +1,7 @@
 import os, re, glob
 
 
-GOLLYX_TOROIDAL_PELICAN_VERSION = "299.1.dev0"
+GOLLYX_TOROIDAL_PELICAN_VERSION = "299.2.dev0"
 
 
 # Yes, this is supposed to be UI not URI...
@@ -26,13 +26,6 @@ READERS = {'html': None}
 
 # Static stuff
 STATIC_PATHS = ['img']
-
-
-# --------------------
-# plugins
-
-PLUGIN_PATHS = [os.path.join(os.environ['HOME'], 'codes', 'pelican-plugins')]
-PLUGINS = ['render_math']
 
 
 
